@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Show login form.
 Route::get('/login', [UserController::class, 'login']);
+
+// Show login form.
+Route::get('/', [CompanyController::class, 'index']);
