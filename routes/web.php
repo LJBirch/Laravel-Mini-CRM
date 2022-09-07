@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Show company index page.
+// Show all companies.
 Route::get('/', [CompanyController::class, 'index']);
+
+// Show single company.
+Route::get('/companies/{company}', [CompanyController::class, 'show']);
 
 // Show login form.
 Route::get('/login', [UserController::class, 'login']);
