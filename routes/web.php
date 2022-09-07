@@ -18,11 +18,19 @@ use Illuminate\Support\Facades\Route;
 // Show all companies.
 Route::get('/', [CompanyController::class, 'index']);
 
+// Store company data.
+Route::post('/companies', [CompanyController::class, 'store']);
+
+// Show company create.
+Route::get('/companies/create', [CompanyController::class, 'create'])
+    ->middleware('auth');
+
 // Show single company.
 Route::get('/companies/{company}', [CompanyController::class, 'show']);
 
 // Show login form.
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])
+    ->name('login');
 
 // Login in user.
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);

@@ -20,4 +20,24 @@ class CompanyController extends Controller
             'company' => $company
         ]);
     }
+
+    // Show company create.
+    public function create() {
+        return view('companies.create');
+    }
+
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            'name' => 'required',
+            'email' => [
+                'required',
+                'email'
+            ],
+            'website' => 'required'
+        ]);
+
+        Company::create($formFields);
+
+        return redirect('/');
+    }
 }

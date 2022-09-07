@@ -3,7 +3,7 @@
 @section('content')
 
     @auth
-        <a href="/">
+        <a href="/companies/create">
             <button>Create new company</button>
         </a>
     @endauth
