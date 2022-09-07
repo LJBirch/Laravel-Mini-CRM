@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Show company index page.
+Route::get('/', [CompanyController::class, 'index']);
+
 // Show login form.
 Route::get('/login', [UserController::class, 'login']);
 
-// Show login form.
-Route::get('/', [CompanyController::class, 'index']);
+// Login in user.
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);

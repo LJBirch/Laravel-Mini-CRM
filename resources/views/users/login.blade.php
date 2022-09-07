@@ -1,8 +1,9 @@
 @extends('components.app')
 
 @section('content')
-
-    <form action="">
+    {{--  #TODO add CSRF token to header of HTML document.  --}}
+    <form method="POST" action="/users/authenticate">
+        @csrf
         <label for="email">Email:</label>
         <input name="email" type="text">
 

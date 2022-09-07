@@ -7,7 +7,25 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     // Show login form.
-    public function login() {
+    public function login()
+    {
         return view('users.login');
+    }
+
+    // Log in user.
+    public function authenticate(Request $request)
+    {
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
+
+        if (auth()->attempt($formFields))
+        {
+            $request->session()->regenerate();
+
+        }
+
+        return redirect('/');
     }
 }
