@@ -37,6 +37,9 @@ Route::get('/companies/{company}', [CompanyController::class, 'show']);
 // Show all employees.
 Route::get('/employees', [EmployeeController::class, 'index']);
 
+// Show single employee.
+Route::get('/employees/{employee}', [EmployeeController::class, 'show']);
+
 
 // User routes:
 

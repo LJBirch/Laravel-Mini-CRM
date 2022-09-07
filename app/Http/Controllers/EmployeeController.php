@@ -14,4 +14,12 @@ class EmployeeController extends Controller
             'employees' => Employee::orderBy('created_at')->get()
         ]);
     }
+
+    // Show single employee.
+    public function show(Employee $employee)
+    {
+        return view('employees.show', [
+            'employee' => $employee
+        ]);
+    }
 }
