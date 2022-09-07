@@ -37,6 +37,13 @@ Route::get('/companies/{company}', [CompanyController::class, 'show']);
 // Show all employees.
 Route::get('/employees', [EmployeeController::class, 'index']);
 
+// Store employee data.
+Route::post('/employees', [EmployeeController::class, 'store']);
+
+// Show employee create.
+Route::get('/employees/create', [EmployeeController::class, 'create'])
+    ->middleware('auth');
+
 // Show single employee.
 Route::get('/employees/{employee}', [EmployeeController::class, 'show']);
 

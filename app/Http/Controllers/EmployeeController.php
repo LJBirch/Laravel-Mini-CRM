@@ -22,4 +22,29 @@ class EmployeeController extends Controller
             'employee' => $employee
         ]);
     }
+
+    // Show employee create.
+    public function create()
+    {
+        return view('employees.create');
+    }
+
+    // Store employee data.
+    public function store(Request $request)
+    {
+        $formFields = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => [
+                'required',
+                'email'
+            ],
+            'phone_number' => 'required'
+        ]);
+
+        $formFields['company_id'] = 1;
+        Employee::create($formFields);
+
+        return redirect('/');
+    }
 }
