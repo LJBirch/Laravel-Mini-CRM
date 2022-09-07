@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,9 @@ class EmployeeController extends Controller
     // Show employee create.
     public function create()
     {
-        return view('employees.create');
+        return view('employees.create', [
+            'companies' => Company::all()
+        ]);
     }
 
     // Store employee data.
@@ -39,12 +42,12 @@ class EmployeeController extends Controller
                 'required',
                 'email'
             ],
-            'phone_number' => 'required'
+            'phone_number' => 'required',
+            'company_id' => 'required'
         ]);
 
-        $formFields['company_id'] = 1;
         Employee::create($formFields);
 
-        return redirect('/');
+        return redirect('/employees');
     }
 }
