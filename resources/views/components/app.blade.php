@@ -8,6 +8,20 @@
     <title>{{ config('app.name', 'Laravel')  }}</title>
 </head>
 <body>
+    <header>
+        <nav>
+            @auth
+            <form method="POST" action="/logout">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
+            @else
+            <a href="/login">
+                <button>Login</button>
+            </a>
+            @endauth
+        </nav>
+    </header>
     @yield('content')
 </body>
 </html>
