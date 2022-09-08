@@ -69,11 +69,11 @@
                     <td>{{$employee->email}}</td>
                     <td>{{$employee->phone_number}}</td>
                     <td>
-                        <div class="d-flex justify-content-around">
-                            <a href="/employees/{{$employee->id}}">
+                        <div class="d-flex">
+                            <a class="me-2" href="/employees/{{$employee->id}}">
                                 <button class="btn btn-primary">View</button>
                             </a>
-                            <a href="/employees/{{$employee->id}}/edit">
+                            <a class="me-2" href="/employees/{{$employee->id}}/edit">
                                 <button class="btn btn-warning">Edit</button>
                             </a>
                             <form method="POST" action="/employees/{{$employee->id}}">

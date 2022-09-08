@@ -36,6 +36,9 @@
                 @auth
                 <td>
                     <div class="d-flex">
+                        <a class="me-2" href="/companies/{{$company->id}}">
+                            <button class="btn btn-primary">View</button>
+                        </a>
                         <a class="me-2" href="/companies/{{$company->id}}/edit">
                             <button class="btn btn-warning">Edit</button>
                         </a>
@@ -56,9 +59,9 @@
     @endunless
 
     @auth
-        <a href="/companies/create">
-            <button class="btn btn-primary">Add New Company</button>
-        </a>
+    <a href="/companies/create">
+        <button class="btn btn-success">Add New Company</button>
+    </a>
     @endauth
 
     {{$companies->links()}}
