@@ -15,6 +15,9 @@
 
         <label for="logo">Company Logo:</label>
         <input name="logo" type="file">
+        @error('logo')
+        <p>Logo too small</p>
+        @enderror
 
         <button type="submit">Login</button>
     </form>

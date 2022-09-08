@@ -42,7 +42,8 @@ class CompanyController extends Controller
                 'required',
                 'email'
             ],
-            'website' => 'required'
+            'website' => 'required',
+            'logo' => 'dimensions:min_width=100, min_height=100'
         ]);
 
         if ($request->hasFile('logo'))
