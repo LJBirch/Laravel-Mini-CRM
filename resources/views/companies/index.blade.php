@@ -25,6 +25,11 @@
                     <a href="/companies/{{$company->id}}/edit">
                         <button>Edit</button>
                     </a>
+                    <form method="POST" action="/companies/{{$company->id}}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

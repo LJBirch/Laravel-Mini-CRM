@@ -36,6 +36,10 @@ Route::get('/companies/{company}/edit', [CompanyController::class, 'edit'])
 Route::put('/companies/{company}', [CompanyController::class, 'update'])
     ->middleware('auth');
 
+// Delete company data.
+Route::delete('/companies/{company}', [CompanyController::class, 'delete'])
+    ->middleware('auth');
+
 // Show single company.
 Route::get('/companies/{company}', [CompanyController::class, 'show']);
 

@@ -71,4 +71,11 @@ class CompanyController extends Controller
 
         return redirect('/');
     }
+
+    // Delete company data.
+    public function delete(Company $company)
+    {
+        $company->delete();
+        return redirect('/');
+    }
 }
