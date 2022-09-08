@@ -30,7 +30,7 @@
                 <td>{{$company->website}}</td>
                 @auth
                     <td>
-                        <div class="d-flex justify-content-around">
+                        <div class="d-flex">
                             <a class="me-2" href="/companies/{{$company->id}}/edit">
                                 <button class="btn btn-warning">Edit</button>
                             </a>
