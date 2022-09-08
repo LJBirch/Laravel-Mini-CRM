@@ -28,6 +28,14 @@ Route::post('/companies', [CompanyController::class, 'store']);
 Route::get('/companies/create', [CompanyController::class, 'create'])
     ->middleware('auth');
 
+// Show edit company.
+Route::get('/companies/{company}/edit', [CompanyController::class, 'edit'])
+    ->middleware('auth');
+
+// Update company data.
+Route::put('/companies/{company}', [CompanyController::class, 'update'])
+    ->middleware('auth');
+
 // Show single company.
 Route::get('/companies/{company}', [CompanyController::class, 'show']);
 

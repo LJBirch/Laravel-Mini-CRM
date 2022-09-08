@@ -18,6 +18,11 @@
             <td>{{$company->name}}</td>
             <td>{{$company->email}}</td>
             <td>{{$company->website}}</td>
+            <td>
+                <a href="/companies/{{$company->id}}/edit">
+                    <button>Edit</button>
+                </a>
+            </td>
         </tr>
     </table>
 

@@ -29,6 +29,7 @@ class CompanyController extends Controller
         return view('companies.create');
     }
 
+    // Store company data.
     public function store(Request $request)
     {
         $formFields = $request->validate([
@@ -41,6 +42,32 @@ class CompanyController extends Controller
         ]);
 
         Company::create($formFields);
+
+        return redirect('/');
+    }
+
+    // Show edit company.
+    public function edit(Company $company)
+    {
+        return view('companies.edit', [
+            'company' => $company
+        ]);
+    }
+
+    // Update company data.
+    public function update(Request $request, Company $company)
+    {
+        $formFields = $request->validate([
+                'name' => 'required',
+                'email' => [
+                    'required',
+                    'email'
+                ],
+                'website' => 'required'
+            ]
+        );
+
+        $company->update($formFields);
 
         return redirect('/');
     }

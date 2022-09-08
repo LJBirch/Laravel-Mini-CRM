@@ -1,7 +1,7 @@
 @extends('components.app')
 
 @section('content')
-
+    {{--  #TODO add validation error messages  --}}
     <form method="POST" action="/companies">
         @csrf
         <label for="name">Company Name:</label>

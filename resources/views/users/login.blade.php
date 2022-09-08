@@ -2,6 +2,7 @@
 
 @section('content')
     {{--  #TODO add CSRF token to header of HTML document.  --}}
+    {{--  #TODO add validation error messages  --}}
     <form method="POST" action="/users/authenticate">
         @csrf
         <label for="email">Email:</label>
