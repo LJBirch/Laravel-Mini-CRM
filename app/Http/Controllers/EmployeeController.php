@@ -12,7 +12,7 @@ class EmployeeController extends Controller
     public function index()
     {
         return view('employees.index', [
-            'employees' => Employee::orderBy('created_at')->paginate(10)
+            'employees' => Employee::latest()->filter(request(['search', 'company_id']))->paginate(10)
         ]);
     }
 

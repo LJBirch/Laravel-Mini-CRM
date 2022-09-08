@@ -7,7 +7,6 @@
             <button>Create new company</button>
         </a>
     @endauth
-
     @unless(count($companies) == 0)
         <table>
             <tr>

@@ -7,7 +7,7 @@
             <button>Create new company</button>
         </a>
     @endauth
-
+    <p>{{$company->employees}}</p>
     <img src="{{$company->logo ? asset('storage/' . $company->logo) : asset('/images/no-image.png')}}" alt="">
     <table>
         <tr>

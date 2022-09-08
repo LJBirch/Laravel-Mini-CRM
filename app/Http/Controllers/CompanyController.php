@@ -11,7 +11,8 @@ class CompanyController extends Controller
     public function index()
     {
         return view('companies.index', [
-            'companies' => Company::orderBy('created_at')->paginate(10)
+            'companies' => Company::latest()
+                ->filter(request(['search']))->paginate(10)
         ]);
     }
 
