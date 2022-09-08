@@ -8,6 +8,7 @@
         </a>
     @endauth
 
+    <img src="{{$company->logo ? asset('storage/' . $company->logo) : asset('/images/no-image.png')}}" alt="">
     <table>
         <tr>
             <th>Company Name</th>

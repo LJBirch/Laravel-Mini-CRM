@@ -19,7 +19,7 @@ class CompanyFactory extends Factory
         return [
             'name' => fake()->company(),
             'email' => fake()->unique()->companyEmail(),
-            'logo' => fake()->unique()->imageUrl(),
+            'logo' => null,
             'website' => fake()->unique()->url()
         ];
     }

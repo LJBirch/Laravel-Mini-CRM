@@ -41,6 +41,11 @@ class CompanyController extends Controller
             'website' => 'required'
         ]);
 
+        if ($request->hasFile('logo'))
+        {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
         Company::create($formFields);
 
         return redirect('/');
