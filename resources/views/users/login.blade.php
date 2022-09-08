@@ -2,36 +2,25 @@
 
 @section('content')
     <x-section>
-{{--        --}}{{--  #TODO add CSRF token to header of HTML document.  --}}
-{{--        --}}{{--  #TODO add validation error messages  --}}
-{{--        <form method="POST" action="/users/authenticate">--}}
-{{--            @csrf--}}
-{{--            <label for="email">Email:</label>--}}
-{{--            <input name="email" type="text">--}}
-
-{{--            <label for="password">Password:</label>--}}
-{{--            <input name="password" type="password">--}}
-{{--            <button type="submit">Login</button>--}}
-{{--        </form>--}}
-
         <div class="row justify-content-center align-items-center">
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form">
+                        <form method="POST" action="/users/authenticate" class="form">
+                            @csrf
                             <h3 class="text-center mb-3">Login</h3>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input name="email" type="email" class="form-control">
                                 @error('email')
-                                <div class="form-text">{{$message}}</div>
+                                <div class="form-text text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <label for="password" class="form-label">Password</label>
+                                <input name="password" type="password" class="form-control">
                                 @error('password')
-                                <div class="form-text">{{$message}}</div>
+                                <div class="form-text text-danger">{{$message}}</div>
                                 @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -41,5 +30,4 @@
             </div>
         </div>
     </x-section>
-
 @endsection

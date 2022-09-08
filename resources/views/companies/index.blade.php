@@ -23,8 +23,16 @@
                         {{$company->name}}
                     </a>
                 </td>
-                <td>{{$company->email}}</td>
-                <td>{{$company->website}}</td>
+                <td>
+                    <a href="mailto:{{$company->email}}">
+                        {{$company->email}}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{$company->website}}">
+                        {{$company->website}}
+                    </a>
+                </td>
                 @auth
                 <td>
                     <div class="d-flex">
