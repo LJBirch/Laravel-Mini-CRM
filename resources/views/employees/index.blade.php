@@ -47,6 +47,6 @@
     <p>No employees found.</p>
     @endunless
 
-    {{$employees->links()}}
+    {{$employee->links()}}
 </x-section>
 @endsection

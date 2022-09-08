@@ -61,5 +61,7 @@
         </a>
     @endauth
 
+    {{$companies->links()}}
+
 </x-section>
 @endsection
