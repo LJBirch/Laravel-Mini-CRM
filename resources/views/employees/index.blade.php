@@ -2,15 +2,10 @@
 
 @section('content')
 <x-section>
-
-    @auth
-    <a href="/employees/create">
-        <button>Add new employee</button>
-    </a>
-    @endauth
+    <h3 class="mb-4">Employees Information:</h3>
 
     @unless(count($employees) == 0)
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>First Name</th>
@@ -33,14 +28,16 @@
                 </a>
             </td>
             <td>
-                <a href="/employees/{{$employee->id}}/edit">
-                    <button>Edit</button>
-                </a>
-                <form method="POST" action="/employees/{{$employee->id}}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Delete</button>
-                </form>
+                <div class="d-flex">
+                    <a class="me-2" href="/employees/{{$employee->id}}/edit">
+                        <button class="btn btn-warning">Edit</button>
+                    </a>
+                    <form method="POST" action="/employees/{{$employee->id}}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </div>
             </td>
         </tr>
         @endforeach
@@ -49,5 +46,7 @@
     @else
     <p>No employees found.</p>
     @endunless
+
+    {{$employees->links()}}
 </x-section>
 @endsection
