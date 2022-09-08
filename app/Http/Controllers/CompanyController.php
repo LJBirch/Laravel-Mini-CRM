@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -19,8 +20,10 @@ class CompanyController extends Controller
     // Show single company.
     public function show(Company $company)
     {
+        $company['employees'] = Employee::where('company_id', '=', $company->id)->get();
+
         return view('companies.show', [
-            'company' => $company
+            'company' => $company,
         ]);
     }
 
