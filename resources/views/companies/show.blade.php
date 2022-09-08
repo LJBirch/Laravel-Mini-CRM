@@ -30,7 +30,7 @@
                 <td>{{$company->website}}</td>
                 @auth
                     <td>
-                        <div class="d-flex">
+                        <div class="d-flex justify-content-around">
                             <a class="me-2" href="/companies/{{$company->id}}/edit">
                                 <button class="btn btn-warning">Edit</button>
                             </a>
@@ -69,11 +69,14 @@
                     <td>{{$employee->email}}</td>
                     <td>{{$employee->phone_number}}</td>
                     <td>
-                        <div class="d-flex">
-                            <a class="me-2" href="/employees/{{$employee->company->id}}/edit">
+                        <div class="d-flex justify-content-around">
+                            <a href="/employees/{{$employee->id}}">
+                                <button class="btn btn-primary">View</button>
+                            </a>
+                            <a href="/employees/{{$employee->id}}/edit">
                                 <button class="btn btn-warning">Edit</button>
                             </a>
-                            <form method="POST" action="/employees/{{$employee->company->id}}">
+                            <form method="POST" action="/employees/{{$employee->id}}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Delete</button>
@@ -90,7 +93,7 @@
     </p>
     @endunless
     <a href="/employees/create?company_id={{$company->id}}">
-        <button class="btn btn-primary">Add Employee</button>
+        <button class="btn btn-success">Add Employee</button>
     </a>
     @endauth
 </x-section>
