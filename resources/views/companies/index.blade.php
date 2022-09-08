@@ -41,6 +41,5 @@
     @else
         <p>No listings found.</p>
     @endunless
-{{--    <x-company-card :companies="$companies" />--}}
 
 @endsection

@@ -20,7 +20,7 @@
         <label for="company_id">Company</label>
         <select name="company_id" id="company_id">
             @foreach($companies as $company)
-                <option value={{$company->id}} {{$employee->company_id == $company->id ? 'selected' : ''}}>
+                <option value="{{$company->id}}" {{$employee->company_id == $company->id ? 'selected' : ''}}>
                     {{$company->name}}
                 </option>
             @endforeach

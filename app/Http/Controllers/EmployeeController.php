@@ -28,7 +28,8 @@ class EmployeeController extends Controller
     public function create()
     {
         return view('employees.create', [
-            'companies' => Company::all()
+            'companies' => Company::all(),
+            'company_id' => request('company_id')
         ]);
     }
 

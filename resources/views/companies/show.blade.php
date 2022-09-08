@@ -36,6 +36,7 @@
 
     <br>
 
+    @auth
     @unless(count($company->employees) == 0)
         <h2>Company Employees:</h2>
         <table>
@@ -73,7 +74,13 @@
         </table>
 
     @else
-        <p>No employees found.</p>
+        <p>
+            No employees found.
+        </p>
     @endunless
+    <a href="/employees/create?company_id={{$company->id}}">
+        <button>Add an employee</button>
+    </a>
+    @endauth
 
 @endsection

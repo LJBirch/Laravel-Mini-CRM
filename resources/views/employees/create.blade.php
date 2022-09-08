@@ -15,11 +15,11 @@
 
         <label for="phone_number">Phone Number:</label>
         <input name="phone_number" type="string">
-
+        {{print_r($company_id)}}
         <label for="company_id">Company</label>
         <select name="company_id" id="company_id">
             @foreach($companies as $company)
-                <option value={{$company->id}}>
+                <option value={{$company->id}}" {{$company->id == $company_id ? 'selected' : ''}}>
                     {{$company->name}}
                 </option>
             @endforeach

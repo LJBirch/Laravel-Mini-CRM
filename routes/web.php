@@ -22,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [CompanyController::class, 'index']);
 
 // Store company data.
-Route::post('/companies', [CompanyController::class, 'store']);
+Route::post('/companies', [CompanyController::class, 'store'])
+    ->middleware('auth');
 
 // Show company create.
 Route::get('/companies/create', [CompanyController::class, 'create'])
@@ -47,10 +48,12 @@ Route::get('/companies/{company}', [CompanyController::class, 'show']);
 // Employees routes:
 
 // Show all employees.
-Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employees', [EmployeeController::class, 'index'])
+    ->middleware('auth');
 
 // Store employee data.
-Route::post('/employees', [EmployeeController::class, 'store']);
+Route::post('/employees', [EmployeeController::class, 'store'])
+    ->middleware('auth');
 
 // Show employee create.
 Route::get('/employees/create', [EmployeeController::class, 'create'])
@@ -70,7 +73,8 @@ Route::delete('/employees/{employee}', [EmployeeController::class, 'delete'])
 
 
 // Show single employee.
-Route::get('/employees/{employee}', [EmployeeController::class, 'show']);
+Route::get('/employees/{employee}', [EmployeeController::class, 'show'])
+    ->middleware('auth');;
 
 
 // User routes:
@@ -83,6 +87,7 @@ Route::get('/login', [UserController::class, 'login'])
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 // Log user out.
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])
+    ->middleware('auth');;
 
 
