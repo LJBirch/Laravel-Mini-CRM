@@ -20,6 +20,16 @@
             <td>{{$employee->last_name}}</td>
             <td>{{$employee->email}}</td>
             <td>{{$employee->phone_number}}</td>
+            <td>
+                <a href="/employees/{{$employee->id}}/edit">
+                    <button>Edit</button>
+                </a>
+                <form method="POST" action="/employees/{{$employee->id}}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
     </table>
 

@@ -69,7 +69,7 @@ class CompanyController extends Controller
 
         $company->update($formFields);
 
-        return redirect('/');
+        return redirect('/employees');
     }
 
     // Delete company data.

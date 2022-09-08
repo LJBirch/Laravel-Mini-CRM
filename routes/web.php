@@ -56,6 +56,19 @@ Route::post('/employees', [EmployeeController::class, 'store']);
 Route::get('/employees/create', [EmployeeController::class, 'create'])
     ->middleware('auth');
 
+// Show edit employee.
+Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])
+    ->middleware('auth');
+
+// Update employee data.
+Route::put('/employees/{employee}', [EmployeeController::class, 'update'])
+    ->middleware('auth');
+
+// Delete employeee data.
+Route::delete('/employees/{employee}', [EmployeeController::class, 'delete'])
+    ->middleware('auth');
+
+
 // Show single employee.
 Route::get('/employees/{employee}', [EmployeeController::class, 'show']);
 

@@ -50,4 +50,39 @@ class EmployeeController extends Controller
 
         return redirect('/employees');
     }
+
+    // Show edit employee.
+    public function edit(Employee $employee)
+    {
+        return view('employees.edit', [
+            'employee' => $employee,
+            'companies' => Company::all()
+        ]);
+    }
+
+    // Update employee data.
+    public function update(Request $request, Employee $employee)
+    {
+        $formFields = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => [
+                'required',
+                'email'
+            ],
+            'phone_number' => 'required',
+            'company_id' => 'required'
+        ]);
+
+        $employee->update($formFields);
+
+        return redirect('/');
+    }
+
+    // Delete employee data.
+    public function delete(Employee $employee)
+    {
+        $employee->delete();
+        return redirect('/employees');
+    }
 }
