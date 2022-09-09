@@ -22,7 +22,16 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="/">Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('companies/create') ? 'active' : '' }}" aria-current="page" href="/companies/create">Add Company</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('employees') ? 'active' : '' }}" aria-current="page" href="/employees">Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('employees/create') ? 'active' : '' }}" aria-current="page" href="/employees/create">Add Employee</a>
                     </li>
                 </ul>
 
