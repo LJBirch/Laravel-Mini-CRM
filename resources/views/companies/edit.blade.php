@@ -6,9 +6,10 @@
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="/companies" class="form" enctype="multipart/form-data">
+                        <form method="POST" action="/companies/{{$company->id}}" class="form" enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
-                            <h3 class="text-center mb-3">Create Company</h3>
+                            <h3 class="text-center mb-3">Update Company</h3>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Company Name</label>
                                 <input name="name" type="text" class="form-control" value="{{$company->name}}">
@@ -43,7 +44,7 @@
                                 @enderror
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>

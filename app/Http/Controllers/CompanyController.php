@@ -12,8 +12,7 @@ class CompanyController extends Controller
     public function index()
     {
         return view('companies.index', [
-            'companies' => Company::latest()
-                ->filter(request(['search']))->paginate(10)
+            'companies' => Company::latest()->filter(request(['search']))->paginate(10)
         ]);
     }
 
@@ -51,9 +50,9 @@ class CompanyController extends Controller
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
-        Company::create($formFields);
+        $company =  Company::create($formFields);
 
-        return redirect('/');
+        return redirect("/companies/{$company->id}")->with('message', 'Company added successfully!');
     }
 
     // Show edit company.
@@ -79,13 +78,13 @@ class CompanyController extends Controller
 
         $company->update($formFields);
 
-        return redirect('/employees');
+        return redirect("/companies/{$company->id}")->with('message', 'Company updated successfully!');;
     }
 
     // Delete company data.
     public function delete(Company $company)
     {
         $company->delete();
-        return redirect('/');
+        return redirect('/')->with('message', 'Company deleted successfully!');;
     }
 }
