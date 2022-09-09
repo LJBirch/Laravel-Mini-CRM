@@ -47,9 +47,9 @@ class EmployeeController extends Controller
             'company_id' => 'required'
         ]);
 
-        Employee::create($formFields);
+        $employee = Employee::create($formFields);
 
-        return redirect('/employees');
+        return redirect("/employees/{$employee->id}")->with('message', 'Employee added successfully!');
     }
 
     // Show edit employee.
@@ -77,13 +77,13 @@ class EmployeeController extends Controller
 
         $employee->update($formFields);
 
-        return redirect('/');
+        return redirect("/employees/{$employee->id}")->with('message', 'Employee updated successfully!');
     }
 
     // Delete employee data.
     public function delete(Employee $employee)
     {
         $employee->delete();
-        return redirect('/employees');
+        return redirect('/employees')->with('message', 'Employee deleted successfully!');;
     }
 }
