@@ -25,24 +25,40 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{$company->name}}</td>
-                <td>{{$company->email}}</td>
-                <td>{{$company->website}}</td>
-                @auth
-                    <td>
-                        <div class="d-flex">
-                            <a class="me-2" href="/companies/{{$company->id}}/edit">
-                                <button class="btn btn-warning">Edit</button>
-                            </a>
-                            <form method="POST" action="/companies/{{$company->id}}">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </td>
-                @endauth
-            </tr>
+            <td>
+                <a href="/companies/{{$company->id}}">
+                    {{$company->name}}
+                </a>
+            </td>
+            <td>
+                <a href="mailto:{{$company->email}}">
+                    {{$company->email}}
+                </a>
+            </td>
+            <td>
+                <a href="{{$company->website}}">
+                    {{$company->website}}
+                </a>
+            </td>
+            @auth
+                <td>
+                    <div class="d-flex">
+                        <a class="me-2" href="/companies/{{$company->id}}/edit">
+                            <button class="btn btn-warning" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit Company">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </a>
+                        <form method="POST" action="/companies/{{$company->id}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Company">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            @endauth
+        </tr>
         </tbody>
     </table>
 
@@ -64,25 +80,48 @@
             <tbody>
             @foreach($company->employees as $employee)
                 <tr>
-                    <td>{{$employee->first_name}}</td>
-                    <td>{{$employee->last_name}}</td>
-                    <td>{{$employee->email}}</td>
-                    <td>{{$employee->phone_number}}</td>
                     <td>
-                        <div class="d-flex">
-                            <a class="me-2" href="/employees/{{$employee->id}}">
-                                <button class="btn btn-primary">View</button>
-                            </a>
-                            <a class="me-2" href="/employees/{{$employee->id}}/edit">
-                                <button class="btn btn-warning">Edit</button>
-                            </a>
-                            <form method="POST" action="/employees/{{$employee->id}}">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Delete</button>
-                            </form>
-                        </div>
+                        {{$employee->first_name}}
                     </td>
+                    <td>
+                        {{$employee->last_name}}
+                    </td>
+                    <td>
+                        <a href="mailto:{{$employee->email}}">
+                            {{$employee->email}}
+                        </a>
+                    </td>
+                    <td>
+                        {{$employee->phone_number}}
+                    </td>
+                    <td>
+                        <a href="/companies/{{$employee->company->id}}">
+                            {{$employee->company->name}}
+                        </a>
+                    </td>
+                    @auth
+                        <td>
+                            <div class="d-flex">
+                                <a class="me-2" href="/employees/{{$employee->id}}">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Employee">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </a>
+                                <a class="me-2" href="/employees/{{$employee->id}}/edit">
+                                    <button class="btn btn-warning" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit Employee">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </button>
+                                </a>
+                                <form method="POST" action="/employees/{{$employee->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Employee">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    @endauth
                 </tr>
             @endforeach
             </tbody>

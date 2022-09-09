@@ -41,7 +41,7 @@
                             <label for="company_id" class="form-label">Company</label>
                             <select class="form-select" name="company_id" id="company_id">
                                 @foreach($companies as $company)
-                                <option value="{{$company->id}}" {{$company->id == $company_id ? 'selected' : ''}}>
+                                <option value="{{$company->id}}" @selected($company->id == $company_id)>
                                     {{$company->name}}
                                 </option>
                                 @endforeach

@@ -5,17 +5,9 @@
 <x-section>
     <h3 class="mb-4">Company Information:</h3>
 
-    {{--  TODO Refactor to partial.  --}}
-    <form method="GET" action="/" class="form mb-3 d-flex">
-        <input class="form-control form-control-lg me-2" type="text" name="search" placeholder="Search Companies">
-        <button class="btn btn-primary d-flex justify-content-center align-items-center" type="submit">
-            Search
-            <i class="fa-solid fa-magnifying-glass ms-2"></i>
-        </button>
-    </form>
+    @include('partials._search', ['action' => '/', 'placeholder' => 'Search Companies'])
 
     @unless(count($companies) == 0)
-    {{--  TODO Refactor to partial.  --}}
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -24,7 +16,6 @@
                 <th scope="col">Website</th>
             </tr>
         </thead>
-
         <tbody>
             @foreach($companies as $company)
             <tr>
