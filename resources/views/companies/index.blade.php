@@ -47,15 +47,21 @@
                 <td>
                     <div class="d-flex">
                         <a class="me-2" href="/companies/{{$company->id}}">
-                            <button class="btn btn-primary">View</button>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Company">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
                         </a>
                         <a class="me-2" href="/companies/{{$company->id}}/edit">
-                            <button class="btn btn-warning">Edit</button>
+                            <button class="btn btn-warning" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit Company">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
                         </a>
                         <form method="POST" action="/companies/{{$company->id}}">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Delete</button>
+                            <button class="btn btn-danger" type="submit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Company">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                         </form>
                     </div>
                 </td>
@@ -70,7 +76,7 @@
 
     @auth
     <a href="/companies/create">
-        <button class="btn btn-success">Add New Company</button>
+        <button class="btn btn-success">Add Company <i class="fa-solid fa-plus ms-1"></i>  </button>
     </a>
     @endauth
 
